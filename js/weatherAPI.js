@@ -6,14 +6,28 @@ async function pesquisarClima(){
     const response = await fetch(url);
     const result = await response.json();
     console.log(result);
+
+    let icon = result['weather']['icon']
+    const iconUrl = `http://openweathermap.org/img/w/${icon}.png`
+
+    let divClima = document.querySelector('#clima');
+    divClima.innerHTML = `<img src='${iconUrl}' alt='ícone do clima'>`
+    
+    let siglaPais = result['sys']['country']
+    console.log(siglaPais);
+
+    pesquisarPais(siglaPais)
 }
 
-// async function pesquisarPaís(){
-//     climaCidade = document.querySelector('#cidade').value
-//     const url = `https://servicodados.ibge.gov.br/api/v1/paises/US`;
-//     const response = await fetch(url);
-//     const result = await response.json();
-//     console.log(result);
-//     // console.log(climaCidade)
-// }
+async function pesquisarPais(sigla){
+    const url = `https://servicodados.ibge.gov.br/api/v1/paises/${sigla}`;
+    const response = await fetch(url);
+    const result = await response.json();
+    console.log(result);
+    
+    let nomePais = result[0]['nome']['abreviado'];
+    console.log(nomePais);
+    
+    document.querySelector('#pais').value = nomePais;
+}
 
