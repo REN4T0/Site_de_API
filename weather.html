@@ -12,6 +12,7 @@
     <!-- <button onclick="pesquisarClima()">pesquisar</button> -->
 
     <select id="cidade" onchange="pesquisarClima()">
+        <option value="Sao Paulo">São Paulo</option>
         <option value="Belem">Belém</option>
         <option value="Belo Horizonte">Belo Horizonte</option>
         <option value="Brasilia">Brasília</option>
@@ -22,7 +23,6 @@
         <option value="Recife">Recife</option>
         <option value="Rio de Janeiro">Rio de Janeiro</option>
         <option value="Salvador">Salvador</option>
-        <option value="Sao Paulo">São Paulo</option>
         <option value="New York">Nova Iorque</option>
         <option value="Chicago">Chicago</option>
         <option value="Washington">Washington</option>
@@ -39,7 +39,7 @@
     <!-- localidade -->
     <!-- Dia -->
     <div id="localData">
-        <input type="text" id="pais" disabled>
+        <div id="pais"></div>
     </div>
 
     <!-- ícone do clima -->
@@ -47,9 +47,14 @@
     <!-- condição climática -->
     <!-- Velocidade do vento -->
     <div id="Clima">
+        <img src="" id="imgClima" alt="">
         
+        <div id="temp"></div>
+        <div id="condClima"></div>
+        <div id="vento"></div>
     </div>
 
     <!-- Descrição do país -->
+    <div id="historicoPais"></div>
 </body>
 </html>
