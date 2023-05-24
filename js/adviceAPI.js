@@ -11,7 +11,7 @@ async function gerarConselho(){
     if(conselho == conselhoAnterior){
         gerarConselho();
     }else{
-        document.querySelector("#conselho").value = conselho;
+        document.querySelector("#conselho").innerHTML = conselho;
     }
 
 }

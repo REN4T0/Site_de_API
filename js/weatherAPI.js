@@ -43,7 +43,7 @@ async function pesquisarClima(){
     let wind = result['wind']['speed']
 
     let divWind = document.querySelector('#vento');
-    divWind.innerHTML = `<p>vento - ${wind} Km/h</p>`
+    divWind.innerHTML = `<p>Vento - ${wind} Km/h</p>`
 
     // ===========================|SIGLA DO PAÍS|============================
 
