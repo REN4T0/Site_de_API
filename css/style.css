@@ -12,6 +12,12 @@ a{
     color: black;
 }
 
+.boraBill{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
 /* ESTILIZAÇÃO DOS CARDS SUPERIORES */
 #card{
     width: 17rem;
@@ -84,6 +90,78 @@ a{
     #historicoPais{
         text-align: justify;
     }
+
+    #temp{
+        margin-left: 2rem;
+    }
+
+    #condClima, #vento{
+        margin-left: 5rem;
+    }
+
+    @media(max-width: 992px){
+        #condClima, #vento{
+            margin-left: 7rem;
+        }
+
+        #temp{
+            margin-left: 3rem;
+        }
+    }
+
+    @media(max-width: 767.5px){
+        #condClima, #vento{
+            margin-left: 9rem;
+        }
+
+        #temp{
+            margin-left: 4rem;
+        }
+    }
+
+    @media(max-width: 575.5px){
+        #condClima, #vento{
+            margin-left: 1rem;
+        }
+
+        #temp{
+            margin-left: -6rem;
+        }
+
+        #imgClima{
+            width: 7rem;
+        }
+    }
+
+    @media(max-width: 470px){
+        #temp{
+            margin-left: -3rem;
+        }
+    }
+
+    @media(max-width: 350px){
+        #temp{
+            margin-left: -1rem;
+        }
+
+        #imgClima{
+            width: 6rem;
+        }
+    }
+
+    @media(max-width: 230px){
+        #imgClima{
+            display: none;
+        }
+
+        #temp{
+            margin-left: -3rem;
+        }
+    }
+
+    /* #Clima{
+        padding-right: 2rem;
+    } */
 /* FIM DA ESTILIZAÇÃO DA SEÇÃO DE CLIMA */
 
 

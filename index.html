@@ -9,7 +9,8 @@
         <script src="js/weatherAPI.js" defer></script>
         <script src="js/coinAPI.js" defer></script>
         <script src="js/adviceAPI.js" defer></script>
-        <title>Document</title>
+        <link rel="icon" type="image/png" href="./img/luneta.png">
+        <title>Watinging</title>
     </head>
 
     <body>
@@ -44,42 +45,32 @@
         
         
             <section id="sectionClima" class="my-5">
-                <div class="row pt-2">
-                    <!-- localidade -->
-                    <div class="col-1">
-                        <select id="cidade" onchange="pesquisarClima()">
-                            <option value="Sao Paulo">São Paulo</option>
-                            <option value="Belem">Belém</option>
-                            <option value="Belo Horizonte">Belo Horizonte</option>
-                            <option value="Brasilia">Brasília</option>
-                            <option value="Curitiba">Curitiba</option>
-                            <option value="Fortaleza">Fortaleza</option>
-                            <option value="Manaus">Manaus</option>
-                            <option value="Porto Alegre">Porto Alegre</option>
-                            <option value="Recife">Recife</option>
-                            <option value="Rio de Janeiro">Rio de Janeiro</option>
-                            <option value="Salvador">Salvador</option>
-                            <option value="New York">Nova Iorque</option>
-                            <option value="Chicago">Chicago</option>
-                            <option value="Washington">Washington</option>
-                            <option value="Paris">Paris</option>
-                            <option value="London">Londres</option>
-                            <option value="Madrid">Madrid</option>
-                            <option value="Vienna">Vienna</option>
-                            <option value="Moscow">Moscou</option>
-                            <option value="Dubai">Dubai</option>
-                            <option value="Buenos Aires">Buenos Aires</option>
-                            <option value="Tokyo">Tóquio</option>
-                        </select>
-                    </div>
-
-                    <div class="col-1">
-                        <p class="text-center">-</p>
-                    </div>
-
-                    <div id="localData" class="col-4">
-                        <div id="pais"></div>
-                    </div>
+                <div class="row">
+                    <select class="boraBill" id="cidade" onchange="pesquisarClima()">
+                        <option value="Sao Paulo">São Paulo</option>
+                        <option value="Belem">Belém</option>
+                        <option value="Belo Horizonte">Belo Horizonte</option>
+                        <option value="Brasilia">Brasília</option>
+                        <option value="Curitiba">Curitiba</option>
+                        <option value="Fortaleza">Fortaleza</option>
+                        <option value="Manaus">Manaus</option>
+                        <option value="Porto Alegre">Porto Alegre</option>
+                        <option value="Recife">Recife</option>
+                        <option value="Rio de Janeiro">Rio de Janeiro</option>
+                        <option value="Salvador">Salvador</option>
+                        <option value="New York">Nova Iorque</option>
+                        <option value="Chicago">Chicago</option>
+                        <option value="Washington">Washington</option>
+                        <option value="Paris">Paris</option>
+                        <option value="London">Londres</option>
+                        <option value="Madrid">Madrid</option>
+                        <option value="Vienna">Vienna</option>
+                        <option value="Moscow">Moscou</option>
+                        <option value="Dubai">Dubai</option>
+                        <option value="Buenos Aires">Buenos Aires</option>
+                        <option value="Tokyo">Tóquio</option>
+                    </select>
+                    <div class="boraBill" id="pais"></div>
                 </div>
 
                 <hr class="m-0">
@@ -98,7 +89,7 @@
                         </div>
                     </div>
                     
-                    <div class="col-sm-3 align-self-center">
+                    <div class="col-sm-8 align-self-center">
                         <!-- condição climática -->
                         <h3 id="condClima" class="text-uppercase"></h3>
         
@@ -129,7 +120,6 @@
         </main>
 
         <!-- MAIN DAS MOEDAS -->
-
         <main id="mainMoeda" class="py-5 mt-5">
             <section class="container">
                 <h1 class="text-uppercase display-6 fw-normal text-center mb-5">conversão de moedas</h1>
