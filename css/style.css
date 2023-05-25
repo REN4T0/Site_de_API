@@ -85,6 +85,7 @@ a{
         border: none;
         text-align: center;
         outline: none;
+        cursor: pointer;
     }
 
     #historicoPais{
