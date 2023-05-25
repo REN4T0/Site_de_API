@@ -64,7 +64,6 @@ a{
         border-radius: 0;
     }
 }
-
 /* FIM DA ESTILIZAÇÃO DOS CARDS SUPERIORES */
 
 
@@ -86,3 +85,53 @@ a{
         text-align: justify;
     }
 /* FIM DA ESTILIZAÇÃO DA SEÇÃO DE CLIMA */
+
+
+/* ESTILIZAÇÃO DA SEÇÃO DE CONVERSÃO DE MOEDAS */
+#mainMoeda{
+    background-image: url(../img/background_coin.svg);
+}
+
+ #moeda_escolhida, #moeda_converter{
+    background-color: #f0f0f0;
+}
+
+#moeda_escolhida{
+    border-radius: 0px;
+}
+
+#moeda_converter{
+    border-radius: 0px;
+}
+
+#valor{
+    border-radius: 0px 0px 0px 5px;
+}
+
+#valor_convertido{
+    border-radius: 0px 0px 5px 0px;
+}
+/* FIM DA ESTILIZAÇÃO DA SEÇÃO DE CONVERSÃO DE MOEDAS */
+
+
+/* ESTILIZAÇÃO DA SEÇÃO DE CONSELHOS */
+#botao{
+    background-color: rgba(255, 255, 255, 70%);
+    color: rgba(000, 000, 000, 45%);
+}
+
+#botao:hover{
+    background-color: rgba(255, 255, 255, 60%);
+    color: rgba(000, 000, 000, 35%);
+}
+/* FIM DA ESTILIZAÇÃO DA SEÇÃO DE CONSELHOS */
+
+
+/* SOMBRA */
+#mainMoeda{
+    box-shadow: 1px 2px 8px 0px, 0px 0px 0px 0px;
+}
+
+#advice{
+    box-shadow: 0px 0px 0px 0px, 1px 2px 8px 0px;
+}

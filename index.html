@@ -1,48 +1,172 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <script src="js/script.js" defer></script>
-    <title>API</title>
-</head>
-<body>
-    <main class="container">
-        <form class="container">
-            <div class="row">
-                <div class="col-md-6 mt-2">
-                    <label for="moeda_escolhida" class="form-label m-0">Escolha uma moeda</label>
-                    <select id="moeda_escolhida" class="form-control" onchange="moedaEscolhida()">
-                        <option value="BRL">Real Brasileiro</option>
-                        <option value="USD">Dólar Americano</option>
-                        <option value="EUR">Euro</option>
-                        <option value="ARS">Peso Argentino</option>
-                    </select>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="js/weatherAPI.js" defer></script>
+        <script src="js/coinAPI.js" defer></script>
+        <script src="js/adviceAPI.js" defer></script>
+        <title>Document</title>
+    </head>
+
+    <body>
+
+        <main class="container mt-5">
+            <!-- Seção dos cards iniciais -->
+            <section class="row">
+                <div id="card" class="col-sm-4 bg-white">
+                    <a href="#advice">
+                        <img class="img-fluid" src="/img/english_advices.svg" alt="ícone de um livro de inglês">
+                        <h2 id="titleCard" class="text-uppercase">inglês</h2>
+                        <p>Aprenda inglês de uma forma sábia - traduzindo conselhos!</p>
+                    </a>
                 </div>
-                <div class="col-md-6 mt-2">
-                    <label for="moeda_converter" class="form-label m-0">Escolha a moeda para conversão</label>
-                    <select id="moeda_converter" class="form-control" onchange="moedaConverter()">
-                        <option value="USD">Dólar Americano</option>
-                        <option value="BRL">Real Brasileiro</option>
-                        <option value="EUR">Euro</option>
-                        <option value="ARS">Peso Argentino</option>
-                    </select>
+        
+                <div id="card" id="meio" class="col-sm-4 bg-white">
+                    <a href="#sectionClima">
+                        <img class="img-fluid" src="/img/weather.svg" alt="ícone de um calendário com o clima">
+                        <h2 id="titleCard" class="text-uppercase">clima</h2>
+                        <p>Veja o clima e algumas curiosidades sobre os países!</p>
+                    </a>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 mt-2">
-                    <label for="valor" class="form-label m-0">Valor da moeda escolhida</label>
-                    <input type="number" class="form-control" id="valor" value="1" step="0.01" min="0.01" max="999999" oninput="moedaEscolhida()">
+        
+                <div id="card" class="col-sm-4 bg-white">
+                    <a href="#mainMoeda">
+                        <img class="img-fluid" src="/img/coins.svg" alt="ícone de moedas amontuadas">
+                        <h2 id="titleCard" class="text-uppercase">conversão</h2>
+                        <p>Faça a conversão de algumas moedas específicas!</p>
+                    </a>
                 </div>
-                <div class="col-md-6 mt-2">
-                    <label for="valor_convertido" class="form-label m-0">Valor da conversão</label>
-                    <input type="text" class="form-control" id="valor_convertido" disabled>    
+            </section>
+        
+        
+            <section id="sectionClima" class="my-5">
+                <div class="row pt-2">
+                    <!-- localidade -->
+                    <div class="col-1">
+                        <select id="cidade" onchange="pesquisarClima()">
+                            <option value="Sao Paulo">São Paulo</option>
+                            <option value="Belem">Belém</option>
+                            <option value="Belo Horizonte">Belo Horizonte</option>
+                            <option value="Brasilia">Brasília</option>
+                            <option value="Curitiba">Curitiba</option>
+                            <option value="Fortaleza">Fortaleza</option>
+                            <option value="Manaus">Manaus</option>
+                            <option value="Porto Alegre">Porto Alegre</option>
+                            <option value="Recife">Recife</option>
+                            <option value="Rio de Janeiro">Rio de Janeiro</option>
+                            <option value="Salvador">Salvador</option>
+                            <option value="New York">Nova Iorque</option>
+                            <option value="Chicago">Chicago</option>
+                            <option value="Washington">Washington</option>
+                            <option value="Paris">Paris</option>
+                            <option value="London">Londres</option>
+                            <option value="Madrid">Madrid</option>
+                            <option value="Vienna">Vienna</option>
+                            <option value="Moscow">Moscou</option>
+                            <option value="Dubai">Dubai</option>
+                            <option value="Buenos Aires">Buenos Aires</option>
+                            <option value="Tokyo">Tóquio</option>
+                        </select>
+                    </div>
+
+                    <div class="col-1">
+                        <p class="text-center">-</p>
+                    </div>
+
+                    <div id="localData" class="col-4">
+                        <div id="pais"></div>
+                    </div>
                 </div>
-            </div>
-        </form>
-    </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-</body>
+
+                <hr class="m-0">
+
+                <div id="Clima" class="row">
+                    <div class="col-sm-3">
+                        <div class="row">
+                            <div class="col-5 me-3">
+                                <!-- ícone do clima -->
+                                <img src="" id="imgClima" alt="">
+                            </div>
+                            <div class="col-4 align-self-center">
+                                <!-- clima -->
+                                <h1 id="temp" class="display-1"><h1>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-3 align-self-center">
+                        <!-- condição climática -->
+                        <h3 id="condClima" class="text-uppercase"></h3>
+        
+                        <!-- Velocidade do vento -->
+                        <h6 id="vento" class="fw-light"></h6>
+                    </div>
+                </div>
+            </section>
+            
+            <section>
+                <button class="btn btn-primary container text-uppercase fs-2 fw-medium" type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-expanded="false" aria-controls="collapseExample">
+                    descrição do país
+                    
+                    <br>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                        <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                    </svg>
+                </button>
+
+                <!-- Descrição do país -->
+                <div class="collapse mt-2" id="collapse">
+                    <div class="card card-body">
+                        <p id="historicoPais"></p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- MAIN DAS MOEDAS -->
+
+        <main id="mainMoeda" class="py-5 mt-5">
+            <section class="container">
+                <h1 class="text-uppercase display-6 fw-normal text-center mb-5">conversão de moedas</h1>
+                <form class="container">
+                    <div class="input-group">
+                        <select id="moeda_escolhida" class="form-control" onchange="moedaEscolhida()">
+                            <option value="BRL">Real Brasileiro</option>
+                            <option value="USD">Dólar Americano</option>
+                            <option value="EUR">Euro</option>
+                            <option value="ARS">Peso Argentino</option>
+                        </select>
+
+                        <select id="moeda_converter" class="form-control" onchange="moedaConverter()">
+                            <option value="USD">Dólar Americano</option>
+                            <option value="BRL">Real Brasileiro</option>
+                            <option value="EUR">Euro</option>
+                            <option value="ARS">Peso Argentino</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="number" class="form-control" id="valor" value="1" step="0.01" min="0.01" max="999999" oninput="moedaEscolhida()">
+                        <input type="text" class="form-control" id="valor_convertido" readonly>    
+                    </div>
+                </form>
+            </section>
+        </main>
+
+        <!-- MAIN DOS CONSELHOS -->
+        <main id="advice" class="bg-success mb-5">
+            <section class="container">
+                <h1 class="text-uppercase display-6 text-white fw-normal pt-5 mb-5 text-center">learn english with advices!!!</h1>
+                <div type="text" id="conselho" class="form-control text-center">...</div>
+                <button id="botao" class="btn fw-medium text-uppercase my-3" onclick="gerarConselho()">ask for advice</button>
+            </section>
+        </main>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    </body>
 </html>
